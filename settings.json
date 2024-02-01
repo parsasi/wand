@@ -9,8 +9,7 @@
       "after": ["5", "j"]
     }
   ],
-    
-    "vim.insertModeKeyBindings": [
+  "vim.insertModeKeyBindings": [
         {
           "before": ["k", "j"],
           "after": ["<Esc>"]

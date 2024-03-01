@@ -47,8 +47,8 @@ code_actions.setup {
 }
 
 ---- Customization
-vim.keymap.set('n', '<S-J>', '5j<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<S-F>', '5k<CR>', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-J>', '5j<CR>', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-F>', '5k<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>sg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>aa', 'ggVG', { noremap = true, silent = true })
@@ -67,3 +67,4 @@ end, {})
 
 lvim.use_icons = false
 lvim.format_on_save.enabled = true
+

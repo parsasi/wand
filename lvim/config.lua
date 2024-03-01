@@ -50,10 +50,11 @@ code_actions.setup {
 vim.keymap.set('n', '<S-J>', '5j<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-F>', '5k<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
--- Set your leader key (change it to your preferred key)
 vim.api.nvim_set_keymap('n', '<Space>sg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>aa', 'ggVG', { noremap = true, silent = true })
 
+-- Change Vimtree width
+lvim.builtin.nvimtree.setup.view.width = 55
 
 -- Add a cpp command to copy the current path
 vim.api.nvim_create_user_command("Cpp", function()
@@ -66,4 +67,3 @@ end, {})
 
 lvim.use_icons = false
 lvim.format_on_save.enabled = true
-

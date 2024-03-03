@@ -52,6 +52,8 @@ vim.keymap.set({ 'n', 'v' }, '<S-F>', '5k<CR>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>sg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>aa', 'ggVG', { noremap = true, silent = true })
+lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["GT"] = ":BufferLineCyclePrev<CR>"
 
 -- Change Vimtree width
 lvim.builtin.nvimtree.setup.view.width = 55
@@ -67,4 +69,3 @@ end, {})
 
 lvim.use_icons = false
 lvim.format_on_save.enabled = true
-

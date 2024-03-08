@@ -1,0 +1,14 @@
+{
+  "phpdoc": {
+    "prefix": "phpdoc",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " *",
+      " * @param ${2:type} $${3:variable} ${4:Description}",
+      " * @return ${5:type} ${6:Description}",
+      " */"
+    ],
+    "description": "PHPDoc Comment"
+  }
+}

@@ -1,4 +1,3 @@
-
 -- Read the docs: https://www.lunarvim.org/docs/configuration
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
@@ -18,7 +17,7 @@ formatters.setup {
     ---@usage arguments to pass to the formatter
     -- these cannot contain whitespace
     -- options such as `--line-width 80` become either `{"--line-width", "80"}` or `{"--line-width=80"}`
-    -- args = { "--print-width", "100" },
+    args = { "--print-width", "100" },
     ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
     filetypes = {
       "css",
@@ -76,3 +75,8 @@ end, {})
 
 lvim.use_icons = false
 lvim.format_on_save.enabled = true
+
+
+vim.opt.foldmethod = "expr"                     -- default is "normal"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
+vim.opt.foldenable = false                      -- if this option is true and fold method option is other than normal, every time a document

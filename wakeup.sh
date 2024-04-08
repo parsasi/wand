@@ -25,8 +25,8 @@ function run_command {
 
 # Window 1
 open_window_and_cd ~/Desktop/NDCSolutions_API
-run_command "cd ~/Desktop/NDCSolutions_API/ && sh run.sh"
 create_tab_and_run "cd ~/Desktop/NDCSolutions_API/ && lvim ."
+run_command "cd ~/Desktop/NDCSolutions_API/ && sh run.sh"
 create_tab_and_run "cd ~/Desktop/NDCSolutions_API/"
 
 # Window 2

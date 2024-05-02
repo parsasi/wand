@@ -93,6 +93,10 @@ vim.keymap.set('n', 'fo', function() vim.lsp.buf.format() end, { noremap = true 
 -- Change Vimtree width
 lvim.builtin.nvimtree.setup.view.width = 55
 
+
+-- Avoid automatically changing cwd when navigating between buffers
+lvim.builtin.project.active = false
+
 -- Add a cpp command to copy the current path
 vim.api.nvim_create_user_command("Cpp", function()
   local path = vim.fn.expand("%:p")

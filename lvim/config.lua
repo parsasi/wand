@@ -96,8 +96,9 @@ lvim.builtin.nvimtree.setup.view.width = 55
 -- Add a cpp command to copy the current path
 vim.api.nvim_create_user_command("Cpp", function()
   local path = vim.fn.expand("%:p")
+  local relative_path = path:gsub(vim.fn.getcwd(), ".");
   local line_number = vim.fn.line(".")
-  local path_with_line = path .. ":" .. line_number
+  local path_with_line = relative_path .. ":" .. line_number
   vim.fn.setreg("+", path_with_line)
   vim.notify('Copied "' .. path_with_line .. '" to the clipboard!')
 end, {})

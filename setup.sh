@@ -20,6 +20,8 @@ ln -s "$target_directory" ~/wand
 
 echo "Symlink created: ~/wand -> $target_directory"
 
+# Create a symlink for ~/.zshrc to ~/wand/.zshrc
+ln -s ~/wand/.zshrc ~/.zshrc
 
 # Prompt for the prod context name
 read -p "Enter the context name for bnw prod: " prod_context

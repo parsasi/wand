@@ -59,7 +59,7 @@ function run_command {
 function create_agg_tmux_windows {
    # Create a variable for the name of the session
     local session_name="agg"
-    local session_path="~/Desktop/NDCSolutions_aggregator"
+    local session_path="~/Documents/NDCSolutions_aggregator"
   
     open_window_and_cd $session_path
 
@@ -90,7 +90,7 @@ function create_agg_tmux_windows {
 function create_ndc_tmux_windows { 
    # Create a variable for the name of the session
     local session_name="ndc"
-    local session_path="~/Desktop/NDCSolutions_API"
+    local session_path="~/Documents/NDCSolutions_API"
 
     open_window_and_cd $session_path
 
@@ -122,7 +122,7 @@ function create_ndc_tmux_windows {
 function create_bnw_tmux_windows { 
    # Create a variable for the name of the session
     local session_name="bnw"
-    local session_path="~/Desktop/BNWAPP"
+    local session_path="~/Documents/BNWAPP"
 
     open_window_and_cd $session_path
 
@@ -155,7 +155,7 @@ function create_bnw_tmux_windows {
 function create_fre_tmux_windows { 
    # Create a variable for the name of the session
     local session_name="fre"
-    local session_path="~/Desktop/bnw-frontends"
+    local session_path="~/Documents/bnw-frontends"
 
     open_window_and_cd $session_path
 

@@ -23,56 +23,29 @@ function run_command {
 }
 
 
-# # Directories to open in tmux windows
-# directories=(
-#     "NDCSolutions_aggregator"
-# )
-
-# # Function to create tmux windows with panes
-# function create_tmux_windows {
-#     local dir_index=0
-
-#     # Loop through each directory
-#     for dir in "${directories[@]}"; do
-#         # Attach to the session
-#         tmux new-session -s $dir -d
-
-#         # Create a new tmux session/window for each directory
-#         tmux new-window -d -c "$dir" 
-
-#         # Split window horizontally
-#         tmux split-window -h -c "$dir"
-
-#         # Split the right pane vertically
-#         tmux split-window -v -c "$dir"
-
-#         # Select pane 1 (left pane)
-#         tmux select-pane -t 1 
-
-#         # Move to the next directory
-#         ((dir_index++))
-#     done
-
-# }
-
-
 function create_agg_tmux_windows {
    # Create a variable for the name of the session
     local session_name="agg"
     local session_path="~/Documents/NDCSolutions_aggregator"
   
-    open_window_and_cd $session_path
+    create_tab_and_run "cd $session_path"
 
     # Attach to the session
     tmux new-session -s "$session_name" -d
 
     # Create a new tmux session/window for each directory
     #rename the inital window to lvim
-    tmux new-window -d -c "$session_name" -n "lvim"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "server"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "root"
+    tmux new-window -d -c "$session_name"
+
+    tmux rename-window -t "$session_name:0" "lvim"
+
+    tmux rename-window -t "$session_name:1" "server"
+
+    tmux rename-window -t "$session_name:2" "root"
 
     tmux send-keys -t "$session_name:0" "cd $session_path && lvim ." C-m
 
@@ -92,18 +65,24 @@ function create_ndc_tmux_windows {
     local session_name="ndc"
     local session_path="~/Documents/NDCSolutions_API"
 
-    open_window_and_cd $session_path
+    create_tab_and_run "cd $session_path"
 
     # Attach to the session
     tmux new-session -s "$session_name" -d
 
     # Create a new tmux session/window for each directory
     #rename the inital window to lvim
-    tmux new-window -d -c "$session_name" -n "lvim"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "server"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "root"
+    tmux new-window -d -c "$session_name"
+
+    tmux rename-window -t "$session_name:0" "lvim"
+
+    tmux rename-window -t "$session_name:1" "server"
+
+    tmux rename-window -t "$session_name:2" "root"
 
     tmux send-keys -t "$session_name:0" "cd $session_path && lvim ." C-m
 
@@ -124,20 +103,28 @@ function create_bnw_tmux_windows {
     local session_name="bnw"
     local session_path="~/Documents/BNWAPP"
 
-    open_window_and_cd $session_path
+    create_tab_and_run "cd $session_path"
 
     # Attach to the session
     tmux new-session -s "$session_name" -d
 
     # Create a new tmux session/window for each directory
     #rename the inital window to lvim
-    tmux new-window -d -c "$session_name" -n "lvim"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "server"
+    tmux new-window -d -c "$session_name"
     
-    tmux new-window -d -c "$session_name" -n "mysql"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "root"
+    tmux new-window -d -c "$session_name"
+
+    tmux rename-window -t "$session_name:0" "lvim"
+
+    tmux rename-window -t "$session_name:1" "server"
+
+    tmux rename-window -t "$session_name:2" "mysql"
+
+    tmux rename-window -t "$session_name:3" "root"
 
     tmux send-keys -t "$session_name:0" "cd $session_path && lvim ." C-m
 
@@ -157,20 +144,28 @@ function create_fre_tmux_windows {
     local session_name="fre"
     local session_path="~/Documents/bnw-frontends"
 
-    open_window_and_cd $session_path
+    create_tab_and_run "cd $session_path"
 
     # Attach to the session
     tmux new-session -s "$session_name" -d
 
     # Create a new tmux session/window for each directory
     #rename the inital window to lvim
-    tmux new-window -d -c "$session_name" -n "lvim"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "packages"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "server"
+    tmux new-window -d -c "$session_name"
 
-    tmux new-window -d -c "$session_name" -n "root"
+    tmux new-window -d -c "$session_name"
+
+    tmux rename-window -t "$session_name:0" "lvim"
+
+    tmux rename-window -t "$session_name:1" "packages"
+
+    tmux rename-window -t "$session_name:2" "server"
+
+    tmux rename-window -t "$session_name:3" "root"
     
     tmux send-keys -t "$session_name:0" "cd $session_path && lvim ." C-m
 
@@ -185,8 +180,8 @@ function create_fre_tmux_windows {
     run_command "tmux attach -t $session_name"
 }
 
+create_fre_tmux_windows
+create_bnw_tmux_windows
 create_agg_tmux_windows
 create_ndc_tmux_windows
-create_bnw_tmux_windows
-create_fre_tmux_windows
 

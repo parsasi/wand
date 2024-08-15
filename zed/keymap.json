@@ -1,0 +1,34 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: Open Default Keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle",
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space e": "workspace::ToggleLeftDock",
+      "shift-g shift-t": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "shift-j": [
+        "workspace::SendKeystrokes",
+        "down down down down down"
+      ],
+      "shift-f": [
+        "workspace::SendKeystrokes",
+        "up up up up up"
+      ],
+      "space a a": "editor::SelectAll",
+      "f o": "editor::Format"
+    }
+  }
+]

@@ -180,8 +180,8 @@ function create_fre_tmux_windows {
     run_command "tmux attach -t $session_name"
 }
 
+run_command "tmux source-file ~/wand/.tmux.conf"
 create_fre_tmux_windows
 create_bnw_tmux_windows
 create_agg_tmux_windows
 create_ndc_tmux_windows
-

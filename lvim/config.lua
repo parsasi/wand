@@ -5,7 +5,17 @@
 
 --Plaugins
 lvim.plugins = {
-  { "github/copilot.vim" }
+  { "github/copilot.vim" },
+  {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      -- custom options here
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts) -- calling setup is optional
+      vim.cmd [[colorscheme tokyodark]]
+    end,
+  }
 }
 
 -- Prettier configuration
@@ -107,7 +117,6 @@ vim.api.nvim_create_user_command("Cpp", function()
   vim.notify('Copied "' .. path_with_line .. '" to the clipboard!')
 end, {})
 
-lvim.use_icons = false
 lvim.format_on_save.enabled = true
 
 

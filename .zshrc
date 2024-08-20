@@ -24,6 +24,7 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+export PATH="~/.local/.bin:$PATH"
 
 # Alias for sudo
 alias please='sudo'

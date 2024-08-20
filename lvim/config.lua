@@ -13,10 +13,13 @@ lvim.plugins = {
     },
     config = function(_, opts)
       require("tokyodark").setup(opts) -- calling setup is optional
-      vim.cmd [[colorscheme tokyodark]]
     end,
   }
 }
+
+vim.schedule(function()
+  vim.cmd("colorscheme tokyodark")
+end)
 
 -- Prettier configuration
 local formatters = require "lvim.lsp.null-ls.formatters"

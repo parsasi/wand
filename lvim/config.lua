@@ -5,7 +5,10 @@
 
 --Plaugins
 lvim.plugins = {
-  { "github/copilot.vim" },
+  {
+    "github/copilot.vim",
+    tag = "v1.33.0"
+  },
   {
     "tiagovla/tokyodark.nvim",
     opts = {
@@ -119,6 +122,31 @@ vim.api.nvim_create_user_command("Cpp", function()
   vim.fn.setreg("+", path_with_line)
   vim.notify('Copied "' .. path_with_line .. '" to the clipboard!')
 end, {})
+
+--Add a cpg command to copy the current path's girhub
+vim.api.nvim_create_user_command("Cpg", function(opts)
+  local path = vim.fn.expand("%:p")
+  local relative_path = path:gsub(vim.fn.getcwd() .. "/", "")
+  local line_number = vim.fn.line(".")
+  local path_with_line = relative_path .. "#L" .. line_number
+
+  -- Use the provided branch or default to the current branch
+  local branch = opts.args ~= "" and opts.args or vim.fn.system("git branch --show-current"):gsub("\n", "")
+
+  -- Get the repository URL
+  local repository = vim.fn.system("git remote get-url origin")
+  local repository_url = repository:gsub(".*:", ""):gsub(".git", "")
+
+  -- Construct the GitHub URL
+  local gh_url_with_branch = "https://github.com/" .. repository_url .. "/tree/" .. branch .. "/" .. path_with_line
+
+  -- Copy to clipboard
+  vim.fn.setreg("+", gh_url_with_branch)
+  vim.notify('Copied "' .. gh_url_with_branch .. '" to the clipboard!')
+end, {
+  nargs = "?", -- Optional argument
+})
+
 
 lvim.format_on_save.enabled = true
 

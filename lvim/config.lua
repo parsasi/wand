@@ -101,6 +101,7 @@ vim.keymap.set({ 'n', 'v' }, '<S-J>', '5j<CR>', { noremap = true, silent = true 
 vim.keymap.set({ 'n', 'v' }, '<S-F>', '5k<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>sg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" }
 vim.api.nvim_set_keymap('n', '<Space>aa', 'ggVG', { noremap = true, silent = true })
 lvim.keys.normal_mode["gt"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["GT"] = ":BufferLineCyclePrev<CR>"
@@ -147,6 +148,8 @@ end, {
   nargs = "?", -- Optional argument
 })
 
+-- Add the keybindings for LSP references
+lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>Telescope lsp_references()<cr>", "Telescope references" }
 
 lvim.format_on_save.enabled = true
 

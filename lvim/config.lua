@@ -9,19 +9,21 @@ lvim.plugins = {
     "github/copilot.vim",
     tag = "v1.33.0"
   },
-  {
-    "tiagovla/tokyodark.nvim",
-    opts = {
-      -- custom options here
-    },
-    config = function(_, opts)
-      require("tokyodark").setup(opts) -- calling setup is optional
-    end,
-  }
+  -- {
+  --   "tiagovla/tokyodark.nvim",
+  --   opts = {
+  --     -- custom options here
+  --   },
+  --   config = function(_, opts)
+  --     require("tokyodark").setup(opts) -- calling setup is optional
+  --   end,
+  -- },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
+require("catppuccin").setup()
 vim.schedule(function()
-  vim.cmd("colorscheme tokyodark")
+  vim.cmd.colorscheme "catppuccin"
 end)
 
 -- Prettier configuration

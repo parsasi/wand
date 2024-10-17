@@ -9,15 +9,16 @@ lvim.plugins = {
     "github/copilot.vim",
     tag = "v1.33.0"
   },
-  -- {
-  --   "tiagovla/tokyodark.nvim",
-  --   opts = {
-  --     -- custom options here
-  --   },
-  --   config = function(_, opts)
-  --     require("tokyodark").setup(opts) -- calling setup is optional
-  --   end,
-  -- },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
@@ -152,7 +153,20 @@ end, {
 
 -- Add the keybindings for LSP references
 lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>Telescope lsp_references()<cr>", "Telescope references" }
-
+lvim.builtin.telescope = {
+  active = true,
+  defaults = {
+    layout_strategy = "horizontal",
+  },
+  pickers = {
+    git_files = {
+      hidden = true,
+    },
+    live_grep = {
+      hidden = true,
+    },
+  },
+}
 lvim.format_on_save.enabled = true
 
 

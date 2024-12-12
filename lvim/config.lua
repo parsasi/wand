@@ -22,6 +22,18 @@ lvim.plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
+
+require('lspconfig').tsserver.setup({
+  init_options = {
+    preferences = {
+      -- other preferences...
+      importModuleSpecifierPreference = 'relative',
+      importModuleSpecifierEnding = 'minimal',
+    },
+  }
+})
+
+
 require("catppuccin").setup()
 vim.schedule(function()
   vim.cmd.colorscheme "catppuccin"
@@ -173,3 +185,4 @@ lvim.format_on_save.enabled = true
 vim.opt.foldmethod = "expr"                     -- default is "normal"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
 vim.opt.foldenable = false                      -- if this option is true and fold method option is other than normal, every time a document
+lvim.builtin.which_key.setup.plugins.presets.z = true

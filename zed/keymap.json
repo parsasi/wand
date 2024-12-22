@@ -17,7 +17,7 @@
     }
   },
   {
-    "context": "Editor",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "shift-j": ["workspace::SendKeystrokes", "down down down down down"],
       "shift-f": ["workspace::SendKeystrokes", "up up up up up"],

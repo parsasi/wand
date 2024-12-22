@@ -24,5 +24,14 @@
       "space a a": "editor::SelectAll",
       "f o": "editor::Format"
     }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "shift-j": ["workspace::SendKeystrokes", "down down down down down"],
+      "shift-f": ["workspace::SendKeystrokes", "up up up up up"],
+      "space a a": "editor::SelectAll",
+      "f o": "editor::Format"
+    }
   }
 ]

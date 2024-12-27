@@ -19,7 +19,8 @@ lvim.plugins = {
       })
     end
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",     name = "catppuccin", priority = 1000 },
+  { "jwalton512/vim-blade" },
 }
 
 
@@ -52,6 +53,10 @@ formatters.setup {
       "json",
       "markdown",
     },
+  },
+  {
+    name = "blade_formatter", -- note the underscore, this is the builtin name
+    filetypes = { "blade" },
   },
 }
 

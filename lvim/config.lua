@@ -3,6 +3,9 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
+-- define home
+local home = os.getenv("HOME")
+
 --Plaugins
 lvim.plugins = {
   {
@@ -21,6 +24,21 @@ lvim.plugins = {
   },
   { "catppuccin/nvim",     name = "catppuccin", priority = 1000 },
   { "jwalton512/vim-blade" },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "cat " .. home .. "/wand/.chatgpt-api-key",
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim", -- optional
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 }
 
 

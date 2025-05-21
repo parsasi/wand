@@ -5,6 +5,7 @@ export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="$HOME/nvim-0.10.4/bin:$PATH"
 
 # export NVM_DIR="$HOME/.nvm"
 #     [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm

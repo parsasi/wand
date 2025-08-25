@@ -43,3 +43,4 @@ alias k='kubectl'
 # Alias to switch kubectl context
 alias timeforproduction='k config use-context $(cat $HOME/wand/bnw-prod.txt)'
 alias timeforstaging='k config use-context $(cat $HOME/wand/bnw-staging.txt)'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

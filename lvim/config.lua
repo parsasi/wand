@@ -22,7 +22,7 @@ lvim.plugins = {
       })
     end
   },
-  { "catppuccin/nvim",     name = "catppuccin", priority = 1000 },
+  { "folke/tokyonight.nvim", lazy = false, priority = 1000 },
   { "jwalton512/vim-blade" },
   {
     "jackMort/ChatGPT.nvim",
@@ -53,9 +53,15 @@ require('lspconfig').tsserver.setup({
 })
 
 
-require("catppuccin").setup()
+require("tokyonight").setup({
+  style = "night",
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true }
+  }
+})
 vim.schedule(function()
-  vim.cmd.colorscheme "catppuccin"
+  vim.cmd.colorscheme "tokyonight"
 end)
 
 -- Prettier configuration

@@ -23,6 +23,7 @@ lvim.plugins = {
     end
   },
   { "folke/tokyonight.nvim", lazy = false, priority = 1000 },
+  { "datsfilipe/min-theme.nvim" },
   { "jwalton512/vim-blade" },
   {
     "jackMort/ChatGPT.nvim",
@@ -53,15 +54,8 @@ require('lspconfig').tsserver.setup({
 })
 
 
-require("tokyonight").setup({
-  style = "night",
-  styles = {
-    comments = { italic = true },
-    keywords = { italic = true }
-  }
-})
 vim.schedule(function()
-  vim.cmd.colorscheme "tokyonight"
+  vim.cmd.colorscheme "min-theme"
 end)
 
 -- Prettier configuration
